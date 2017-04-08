@@ -32,7 +32,7 @@ SCENARIO ("Read and Write")
   tree <int> testread;
   testread.ins_node(6);
   testread.ins_node(5);
-  testread.writе("bin.txt");
+  testread.write("bin.txt");
   
   tree <int> testwrite;
   testwrite.read("newbin.txt");
