@@ -25,7 +25,7 @@ public:
 	void out()const;
 	void read(const std::string& filename);
 	void out(std::ostream& ost, Node<T>* temp)const;
-	void writing(const std::string& filename)const;
+	void writе(const std::string& filename)const;
 };
 
 template<class T>
@@ -141,7 +141,7 @@ void tree<T>::out(ostream& ost, Node<T>* temp)const
 }
 
 template<typename T>
-void tree<T>::writing(const std::string& filename)const
+void tree<T>::writе(const std::string& filename)const
 {
 	ofstream fout(filename);
 	fout << count << " ";
