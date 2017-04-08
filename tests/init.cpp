@@ -4,8 +4,8 @@
 SCENARIO(" Zero ") 
 {
 tree <int> test;
-REQUIRE(root_.test() == nullptr);
-REQUIRE(get_count.test() == 0);	
+REQUIRE(test.root_() == nullptr);
+REQUIRE(test.get_count() == 0);	
 }
 SCENARIO(" 1 ")
 {
