@@ -27,3 +27,16 @@ SCENARIO("Get root")
   test.ins_node(6);
   REQUIRE(test.root_() != 0);
 }
+SCENARIO ("Read and Write")
+{
+  tree <int> testread;
+  testread.ins_node(6);
+  testread.ins_node(5);
+  testread.writing("bin.txt");
+  
+  tree <int> testwrite;
+  testwrite.reading("newbin.txt");
+  REQUIRE(testwrite.find_node(6, testwrite.root_())!= nullptr);
+  REQUIRE(testwrite.find_node(5, testwrite.root_())!= nullptr);
+  REQUIRE(testread.get_count() == testwrite.get_count());
+}
