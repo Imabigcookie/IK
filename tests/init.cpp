@@ -29,12 +29,12 @@ SCENARIO("Get root")
 }
 SCENARIO ("Read and Write")
 {
-  tree <int> testread;
+  tree <int> testr;
   testr.ins_node(6);
   testr.ins_node(5);
   testr.writing("bin.txt");
   
-  tree <int> testwrite;
+  tree <int> testw;
   testwrite.read("newbin.txt");
   REQUIRE(testw.find_node(6, testw.root_())!= nullptr);
   REQUIRE(testw.find_node(5, testw.root_())!= nullptr);
