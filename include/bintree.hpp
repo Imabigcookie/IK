@@ -1,4 +1,4 @@
-#include <fstream>Tree
+#include <fstream>
 #include <iostream>
 using namespace std;
 
@@ -73,7 +73,6 @@ int tree<T>::get_count()const
 template<class T>
 void tree<T>::ins_node(const T&x)
 {
-	if (find_node(x, root_())) return;
 	Node<T>* duz = new Node<T>;
 	duz->key = x;
 	duz->left = duz->right = 0;
