@@ -1,4 +1,4 @@
-#include <bintree.cpp>
+#include <bintree.hpp>
 #include <catch.hpp>
 
 SCENARIO(" Zero ") 
