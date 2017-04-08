@@ -1,9 +1,9 @@
 #include <bintree.cpp>
 #include <catch.hpp>
 
-SCENARIO("def constructor") 
+SCENARIO(" Zero ") 
 {
-	BST Node;
-	REQUIRE(Node.val() == 0);
+tree test;
+REQUIRE(root_.test() == nullptr);
+REQUIRE(get_count.test() == 0);	
 }
-
