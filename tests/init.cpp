@@ -32,10 +32,10 @@ SCENARIO ("Read and Write")
   tree <int> testread;
   testread.ins_node(6);
   testread.ins_node(5);
-  testread.writing("bin.txt");
+  testread.writе("bin.txt");
   
   tree <int> testwrite;
-  testwrite.reading("newbin.txt");
+  testwrite.read("newbin.txt");
   REQUIRE(testwrite.find_node(6, testwrite.root_())!= nullptr);
   REQUIRE(testwrite.find_node(5, testwrite.root_())!= nullptr);
   REQUIRE(testread.get_count() == testwrite.get_count());
