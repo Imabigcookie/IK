@@ -153,6 +153,7 @@ void tree<T>::writing(const std::string& filename)const
 	out(fout, root);
 	fout.close();
 }
+template<typename T>
 void tree<T>::out()const
 {
 	disp(root, 0);
