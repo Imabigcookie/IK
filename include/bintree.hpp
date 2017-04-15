@@ -24,7 +24,7 @@ public:
 	Node<T>*root_()const;
 	void out()const;
 	void read(const std::string& filename);
-	void out(std::ostream& ost, Node<T>* temp)const;
+	void disp(Node<T>* temp, unsigned int level)const;
 	void writing(const std::string& filename)const;
 };
 
@@ -131,13 +131,17 @@ void tree<T>::print() const
 {
 	out(cout, this->root);
 }
-template<typename T>
-void tree<T>::out(ostream& ost, Node<T>* temp)const
+void tree<T>::disp(Node<T>* temp, unsigned int level)const
 {
-	if (!temp) return;
-	ost << temp->key << " ";
-	out(ost, temp->left);
-	out(ost, temp->right);
+
+	if (temp)
+	{
+		disp(temp->Left, level + 1);
+		for (unsigned int i = 0; i < level; i++)
+			std::cout << "-";
+		std::cout << temp->key << std::endl;
+		disp(temp->Right, level + 1);
+	}
 }
 
 template<typename T>
