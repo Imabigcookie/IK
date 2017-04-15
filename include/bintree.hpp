@@ -131,6 +131,7 @@ void tree<T>::print() const
 {
 	out(cout, this->root);
 }
+template<class T>
 void tree<T>::disp(Node<T>* temp, unsigned int level)const
 {
 
