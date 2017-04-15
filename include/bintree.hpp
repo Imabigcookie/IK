@@ -136,11 +136,11 @@ void tree<T>::disp(Node<T>* temp, unsigned int level)const
 
 	if (temp)
 	{
-		disp(temp->Left, level + 1);
+		disp(temp->left, level + 1);
 		for (unsigned int i = 0; i < level; i++)
 			std::cout << "-";
 		std::cout << temp->key << std::endl;
-		disp(temp->Right, level + 1);
+		disp(temp->right, level + 1);
 	}
 }
 
