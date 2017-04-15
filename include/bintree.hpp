@@ -22,7 +22,7 @@ public:
 	void print()const;
 	Node<T>* find_node(const T& val, Node<T>* temp)const;
 	Node<T>*root_()const;
-	void out()const;
+	void output()const;
 	void read(const std::string& filename);
 	void disp(Node<T>* temp, unsigned int level)const;
 	void writing(const std::string& filename)const;
@@ -154,7 +154,7 @@ void tree<T>::writing(const std::string& filename)const
 	fout.close();
 }
 template<typename T>
-void tree<T>::out()const
+void tree<T>::output()const
 {
 	disp(root, 0);
 }
