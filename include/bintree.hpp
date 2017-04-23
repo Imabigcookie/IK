@@ -193,7 +193,7 @@ bool Tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
 		else {
 			Node<T>* vals = cur->right;
 			while (vals->left) {
-				vvals = vals->left;
+				vals = vals->left;
 			}
 			T temp = cur->key;
 			cur->key = vals->key;
