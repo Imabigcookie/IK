@@ -169,7 +169,7 @@ void tree<T>::output()const
 {
 	disp(root, 0);
 }
-template<class T>
+template<typename T>
 bool Tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
 {
 	if (!cur) return false;
