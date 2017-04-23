@@ -115,19 +115,30 @@ Node<T>* tree<T>::find_node(const T& val, Node<T>* temp) const
 template<typename T>
 void tree<T>::read(const std::string& filename)
 {
-	ifstream fin(filename);
-	if (root != nullptr)
-		delNode(root);
-
-	int k;
-	fin >> k;
-	T temp;
-	for (int i = 0; i < k; ++i)
+	std::ifstream fin(filename);
+	try
 	{
+		if (!fin.is_open()) throw 123;
+		int k;
+		fin >> k;
+		T temp;
+	if (root != nullptr)
+		{
+			delNode(root);
+			root = nullptr;
+			count = 0;
+		}
+	for (int i = 0; i < k; ++i)
+		{
 		fin >> temp;
 		ins_node(temp);
-	}
+		}
 	fin.close();
+	}
+	catch (int i)
+	{
+		std::cout << "File not found!" << std::endl;
+	}
 }
 template<typename T>
 void tree<T>::print() const
@@ -170,7 +181,7 @@ void tree<T>::output()const
 	disp(root, 0);
 }
 template<class T>
-bool Tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
+bool tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
 {
 	if (!cur) return false;
 	if (cur->key == val)
@@ -210,7 +221,7 @@ bool Tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
 		return del(cur, cur->right, val);
 }
 template<class T>
-bool Tree<T>::delv(const T& value)
+bool tree<T>::delv(const T& value)
 {
 	return this->del(NULL,root, value);
 }
