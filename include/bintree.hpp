@@ -27,6 +27,8 @@ public:
 	void out(std::ostream& ost, Node<T>* temp)const;
 	void disp(Node<T>* temp, unsigned int level)const;
 	void writing(const std::string& filename)const;
+	bool del(Node<T>* pr, Node<T>* cur, const T& val);
+	bool delv(const T& value);
 };
 
 template<class T>
@@ -141,16 +143,16 @@ void tree<T>::out(ostream& ost, Node<T>* temp)const
 	out(ost, temp->right);
 }
 template<class T>
-void tree<T>::disp(Node<T>* temp, unsigned int level)const
+void tree<T>::disp(Node<T>* temp, unsigned int lvl)const
 {
 
 	if (temp)
 	{
-		disp(temp->left, level + 1);
-		for (unsigned int i = 0; i < level; i++)
+		disp(temp->left, lvl + 1);
+		for (unsigned int i = 0; i < lvl; i++)
 			std::cout << "-";
 		std::cout << temp->key << std::endl;
-		disp(temp->right, level + 1);
+		disp(temp->right, lvl + 1);
 	}
 }
 
@@ -166,4 +168,48 @@ template<typename T>
 void tree<T>::output()const
 {
 	disp(root, 0);
+}
+bool Tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
+{
+	if (!cur) return false;
+	if (cur->key == val)
+	{
+		if (cur->Left == NULL || cur->right == NULL) {
+			Node<T>* temp = cur-left;
+			if (cur->right) temp = cur->right;
+			if (pr) {
+				if (pr->left == cur) {
+					pr->left = temp;
+				}
+				else {
+					pr->right = temp;
+				}
+			}
+			else {
+				this->root = temp;
+			}
+		}
+		else {
+			Node<T>* vals = cur->right;
+			while (vals->left) {
+				vvals = vals->left;
+			}
+			T temp = cur->key;
+			cur->key = vals->key;
+			vals->key = temp;
+			return del(cur, cur->right, temp);
+		}
+		delete cur;
+		count--;
+		return true;
+	}
+	if (cur->key > val)
+		return del(cur, cur->left, val);
+	else 
+		return del(cur, cur->right, val);
+}
+template<class T>
+bool Tree<T>::delv(const T& value)
+{
+	return this->del(NULL,root, value);
 }
