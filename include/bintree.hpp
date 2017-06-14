@@ -12,7 +12,7 @@ template <class T> class tree
 {
 private:
 	Node<T>*root;
-	i count;
+	in count;
 public:
 	tree();
 	~tree();
