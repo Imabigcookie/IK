@@ -201,9 +201,11 @@ bool tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
 				this->root = temp;
 			}
 		}
-		else {
+		else 
+		{
 			Node<T>* vals = cur->right;
-			while (vals->left) {
+			while (vals->left) 
+			{
 				vals = vals->left;
 			}
 			T temp = cur->key;
