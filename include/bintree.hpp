@@ -210,10 +210,10 @@ bool tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
 			}
 			vals->right=cur->right->left;
 			cur->right->left=cur->left;
-			if (pt->left==cur)
+			if (pr->left==cur)
 				pr->left=cur->right;
 			if (pr->right==cur)
-				pr->right=cur->right
+				pr->right=cur->right;
 			
 		}
 		delete cur;
