@@ -203,15 +203,18 @@ bool tree<T>::del(Node<T>* pr, Node<T>* cur,const T& val)
 		}
 		else 
 		{
-			Node<T>* vals = cur->right;
-			while (vals->left) 
+			Node<T>* vals = cur->left;
+			while (vals->right) 
 			{
-				vals = vals->left;
+				vals = vals->right;
 			}
-			T temp = cur->key;
-			cur->key = vals->key;
-			vals->key = temp;
-			return del(cur, cur->right, temp);
+			vals->right=cur->right->left;
+			cur->right->left=cur->left;
+			if (pt->left==cur)
+				pr->left=cur->right;
+			if (pr->right==cur)
+				pr->right=cur->right
+			
 		}
 		delete cur;
 		count--;
